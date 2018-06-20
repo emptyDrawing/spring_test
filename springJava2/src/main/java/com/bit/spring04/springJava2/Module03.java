@@ -1,25 +1,19 @@
 package com.bit.spring04.springJava2;
 
+import java.util.List;
+
 public class Module03 implements MyModule{
 
-	private String msg;
-	private String msg2;
+	private List<String> alist;
 	
-	public Module03(){
-		
+	public void setAlist(List<String> alist) {
+		this.alist = alist;
 	}
-
-	public Module03(String msg, String msg2) {
-		this.msg = msg;
-		this.msg2 = msg2;
-	}
-
-
-
-
+	
 	public void func01() {
-		if(msg!=null) System.out.println(msg);
-		if(msg2!=null) System.out.println(msg2);
+		for(String msg : alist){
+			System.out.println(msg);
+		}
 	}
 
 	

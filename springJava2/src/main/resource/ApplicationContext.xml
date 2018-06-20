@@ -4,10 +4,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- ApplicationContext.xml -->
-	<bean id="md01" class="com.bit.spring04.springJava2.Module01"></bean>
-	<bean id="md03" class="com.bit.spring04.springJava2.Module03">
-		<constructor-arg value="hi~"></constructor-arg>
-		<constructor-arg value="hello~"></constructor-arg>
+	<bean id="MyModule" class="com.bit.spring04.springJava2.Module03">
+		<property name="alist">
+			<list>
+				<value>aaa</value>
+				<value>bbb</value>
+				<value>ccc</value>
+				<value>ddd</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="front" class="com.bit.spring04.springJava2.FrontModule">
+		<constructor-arg ref="MyModule"></constructor-arg>
 	</bean>
 
 

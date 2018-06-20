@@ -11,8 +11,8 @@ public class App2 {
 		// 스프링
 		Resource resource = new ClassPathResource("ApplicationContext.xml");
 		BeanFactory beanFactory = new XmlBeanFactory(resource);
-		MyModule obj =  (MyModule) beanFactory.getBean("md03");
-		obj.func01();
+		FrontModule obj =   (FrontModule) beanFactory.getBean("front");
+		obj.started();
 	}
 
 }
