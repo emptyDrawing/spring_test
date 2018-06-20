@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- ApplicationContext.xml -->
+	<bean id="md01" class="com.bit.spring04.springJava2.Module01"></bean>
+	<bean id="md03" class="com.bit.spring04.springJava2.Module03">
+		<constructor-arg value="hi~"></constructor-arg>
+		<constructor-arg value="hello~"></constructor-arg>
+	</bean>
+
+
+</beans>
