@@ -43,6 +43,7 @@
 	
 	<bean name="/delete.bit" class="com.bit.spring06.controller.DeleteController"
 		p:supportedMethods="POST"
+		p:guestDao-ref="guestDao"
 	/>
 
 
