@@ -23,7 +23,6 @@
 		height: 100%;
 	}
 </style>
-
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -54,6 +53,13 @@
 	<div class="well well-sm">${bean.pay }</div>
 	
 	<a href="edit.bit?idx=${bean.sabun }" role="btn" class="btn btn-default">수정</a>
+	<form action="delete.bit" style="display:inline;" method="post">
+		<input type="hidden" name="idx" value="${bean.sabun }"/>
+		<button type="submit" class="btn btn-danger">삭제</button>
+	</form>
+	
+	<!-- 
 	<a href="delete.bit?idx=${bean.sabun }" role="btn" class="btn btn-danger">삭제</a>
+	 -->
 </body>
 </html>

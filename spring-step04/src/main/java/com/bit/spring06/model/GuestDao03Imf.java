@@ -71,8 +71,9 @@ public class GuestDao03Imf implements GuestDao {
 
 	@Override
 	public int deleteOne(int pk) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql ="DELETE FROM GUEST WHERE SABUN=?";
+		Object[] params = {pk};
+		return template.update(sql, params);
 	}
 
 }

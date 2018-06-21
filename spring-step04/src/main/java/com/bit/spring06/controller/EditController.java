@@ -24,6 +24,6 @@ public class EditController extends AbstractCommandController {
 			throws Exception {
 		GuestVo bean = (GuestVo) command;
 		if(guestDao.updateOne(bean)>0) return new ModelAndView("redirect:/detail.bit?idx="+bean.getSabun());
-		else return new ModelAndView("edit.bit?idx="+bean.getSabun());
+		else return new ModelAndView("redirect:/edit.bit?idx="+bean.getSabun());
 	}
 }
