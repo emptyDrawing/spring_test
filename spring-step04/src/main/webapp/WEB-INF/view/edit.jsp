@@ -35,25 +35,34 @@
     </div>
     <ul class="nav navbar-nav">
     	<li><a href="index.bit">Home</a></li>
-    	<li class="active"><a href="list.bit">List</a></li>
-    	<li><a href="add.bit">Add</a></li>
+    	<li><a href="list.bit">List</a></li>
+    	<li class="active"><a href="add.bit">Add</a></li>
     </ul>
   </div>
 </nav>
 	<div class="page-header">
-		<h1>상세페이지 <small>사번[${bean.sabun }]님의 정보</small></h1>
+		<h1>수정페이지<small>사번[${bean.sabun }]님의 정보</small></h1>
 	</div>
-
-	사번
-	<div class="well well-sm">${bean.sabun }</div>
-	이름
-	<div class="well well-sm">${bean.name }</div>
-	날짜
-	<div class="well well-sm">${bean.nalja }</div>
-	금액
-	<div class="well well-sm">${bean.pay }</div>
-	
-	<a href="edit.bit?idx=${bean.sabun }" role="btn" class="btn btn-default">수정</a>
-	<a href="delete.bit?idx=${bean.sabun }" role="btn" class="btn btn-danger">삭제</a>
+	<form action="update.bit" method="post">
+		<div class="form-group">
+			<label for="sabun">sabun</label>
+			<div class="well well-sm">${bean.sabun }</div>
+			<input type="hidden" value="${bean.sabun }" class="form-control" name="sabun" id="sabun" placeholder="sabun"/>
+		</div>	
+		<div class="form-group">
+			<label for="name">name</label>
+			<input type="text" value="${bean.name }" class="form-control" name="name" id="name" placeholder="name"/>
+		</div>	
+		<div class="form-group">
+			<label for="nalja ">nalja </label>
+			<div class="well well-sm">${bean.nalja }</div>
+		</div>	
+		<div class="form-group">
+			<label for="pay">pay</label>
+			<input type="text" value="${bean.pay }" class="form-control" name="pay" id="pay" placeholder="pay"/>
+		</div>
+		<button type="submit" class="btn btn-danger">수정</button>
+		<button type="reset">리셋</button>
+	</form>
 </body>
 </html>

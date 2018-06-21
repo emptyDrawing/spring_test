@@ -57,14 +57,16 @@ public class GuestDao03Imf implements GuestDao {
 
 	@Override
 	public int insertOne(GuestVo bean) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql ="INSERT INTO GUEST (NAME,PAY,NALJA) VALUES (?,?,NOW())";
+		Object[] params = {bean.getName(),bean.getPay()};
+		return template.update(sql, params);
 	}
 
 	@Override
 	public int updateOne(GuestVo bean) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql ="UPDATE GUEST SET NAME=?, PAY=? WHERE SABUN=?";
+		Object[] params = {bean.getName(),bean.getPay(),bean.getSabun()};
+		return template.update(sql, params);
 	}
 
 	@Override
