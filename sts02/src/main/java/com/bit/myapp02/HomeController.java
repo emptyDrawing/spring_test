@@ -25,13 +25,9 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	
+	@Autowired
 	GuestDao<GuestVo> dao;
 	
-	@Autowired
-	public void setDao(GuestDao<GuestVo> dao) {
-		this.dao = dao;
-	}
 
 	@RequestMapping("/")
 	public String index() {
