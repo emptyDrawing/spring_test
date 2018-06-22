@@ -24,45 +24,32 @@
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="./">
+	      <a class="navbar-brand" href="../">
 			<p>비트교육센터</p>
 	      </a>
 	    </div>
 	  <ul class="nav navbar-nav">
-	  	<li><a href="./">home</a></li>
-	  	<li><a href="list-ver1.bit">Guest.ver1</a></li>
-	  	<li><a href="bbs/list">Guest.ver2</a></li>
+	  	<li><a href="../">home</a></li>
+	  	<li><a href="../list-ver1.bit">Guest.ver1</a></li>
+	  	<li><a href="list">Guest.ver2</a></li>
 	  	<li><a href="#">Guest.ver3</a></li>
 	  </ul>
 	  </div>
 	</nav>
 	<!-- Content start -->
 	<div class="page-header">
-		<h1>list-ver1</h1>
-		<a href="add-ver1.bit" role="btn" class="btn btn-primary">입력하기</a>
-	</div>	
-	<div>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>사번</th>
-					<th>이름</th>
-					<th>날짜</th>
-					<th>금액</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${alist }" var="item">
-					<tr>
-						<td><a href="detail-ver1.bit?idx=${item.sabun }">${item.sabun}</a></td>					
-						<td><a href="detail-ver1.bit?idx=${item.sabun }">${item.name}</a></td>					
-						<td><a href="detail-ver1.bit?idx=${item.sabun }">${item.nalja}</a></td>					
-						<td><a href="detail-ver1.bit?idx=${item.sabun }">${item.pay}</a></td>					
-					</tr>				
-				</c:forEach>
-			</tbody>
-		</table>
-	</div><!-- end point for div embedded table-alist -->
+		<h1>detail-ver1</h1>
+	</div>
+	<div class="well well-sm">${bean.sabun }</div>
+	<div class="well well-sm">${bean.name }</div>
+	<div class="well well-sm">${bean.nalja }</div>
+	<div class="well well-sm">${bean.pay }</div>
+	<div class="btn-group">
+	<a href="edit?idx=${bean.sabun }" role="btn" class="btn btn-success"">수정</a>
+	<a href="del?idx=${bean.sabun }" role="btn" class="btn btn-danger">삭제</a>
+	</div>
+	
+	
 	
 	<!-- Content end -->
 </body>

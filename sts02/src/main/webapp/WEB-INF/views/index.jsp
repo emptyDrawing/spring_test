@@ -30,7 +30,7 @@
 	  <ul class="nav navbar-nav">
 	  	<li><a href="#">home</a></li>
 	  	<li><a href="list-ver1.bit">Guest.ver1</a></li>
-	  	<li><a href="#">Guest.ver2</a></li>
+	  	<li><a href="bbs/list">Guest.ver2</a></li>
 	  	<li><a href="#">Guest.ver3</a></li>
 	  </ul>
 	  </div>

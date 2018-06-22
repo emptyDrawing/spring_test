@@ -24,14 +24,14 @@
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">
+	      <a class="navbar-brand" href="./">
 			<p>비트교육센터</p>
 	      </a>
 	    </div>
 	  <ul class="nav navbar-nav">
-	  	<li><a href="#">home</a></li>
+	  	<li><a href="./">home</a></li>
 	  	<li><a href="list-ver1.bit">Guest.ver1</a></li>
-	  	<li><a href="#">Guest.ver2</a></li>
+	  	<li><a href="bbs/list">Guest.ver2</a></li>
 	  	<li><a href="#">Guest.ver3</a></li>
 	  </ul>
 	  </div>

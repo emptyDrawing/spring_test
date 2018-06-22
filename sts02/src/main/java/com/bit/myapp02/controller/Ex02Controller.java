@@ -36,7 +36,7 @@ public class Ex02Controller {
 //	}
 	
 	@RequestMapping("/{path}/{msg}")
-	public String ex05(@PathVariable String msg, @PathVariable String path, Model model ) {
+	public String ex05(@PathVariable(value="") String msg, @PathVariable String path, Model model ) {
 		model.addAttribute("pathName", path);
 		return "ex12";
 	}
