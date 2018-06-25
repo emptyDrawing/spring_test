@@ -13,8 +13,8 @@
 		$('#edit').click(function(){
 			$(this).hide();
 			$('input').show();
-			$('#delete1>button').hide();
 			$('form>button').show();
+			$('#delete1>button').hide();
 			$('.well').each(function(idx){
 				if(idx==1 || idx==3) $(this).hide();
 			});
