@@ -11,8 +11,12 @@
 		<property name="password" value="tiger"/>
 	</bean>
 	
-	<bean id="guestDao" class="com.bit.myapp03.model.GuestDaoImf01">
-		<property name="dataSource" ref="dataSource"></property>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="guestDao" class="com.bit.myapp03.model.GuestDaoImf02">
+		<property name="jdbcTemplatel" ref="jdbcTemplate"></property>
 	</bean>
 
 </beans>

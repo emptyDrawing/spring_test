@@ -1,8 +1,6 @@
 package com.bit.myapp03.model;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 
@@ -16,10 +14,8 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import com.bit.myapp03.model.GuestDao;
-import com.bit.myapp03.model.GuestDaoImf01;
-
 public class GuestDaoTest {
+
 
 	static GuestDao guestDao;
 	
@@ -45,7 +41,8 @@ public class GuestDaoTest {
 
 	@Test
 	public void testConnection() {
-		assertNotNull("접속..",((GuestDaoImf01)guestDao).getDataSource());
+//		assertNotNull("접속..",((GuestDaoImf01)guestDao).getDataSource());
+		assertNotNull("접속..",((GuestDaoImf02)guestDao).getJdbcTemplatel().getDataSource());
 	}
 	
 	@Test
@@ -53,5 +50,6 @@ public class GuestDaoTest {
 		assertNotNull(guestDao.selectAll());
 		assertTrue(guestDao.selectAll().size()>0);
 	}
+
 
 }

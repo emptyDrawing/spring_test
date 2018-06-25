@@ -14,10 +14,13 @@ public class GuestController {
 
 	@Autowired
 	GuestDao guestDao;
+	private String goRoot ="./";
 
-	@RequestMapping("/list")
+
+	@RequestMapping("/guest")
 	public String list(Model model) throws SQLException{
 		model.addAttribute("alist", guestDao.selectAll());
+		model.addAttribute("goRoot", goRoot );
 		return "list";
 	}
 	
