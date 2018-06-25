@@ -40,7 +40,16 @@ public class DetailController {
 	@RequestMapping(value ="/guest/{idx}", method=RequestMethod.PUT)
 	public String detail(@PathVariable int idx,@ModelAttribute GuestVo bean) throws SQLException {
 		log.debug("[put]"+bean);
+		guestDao.updateOne(bean);
 		return "redirect:../guest/"+idx;
+	}
+
+	
+	@RequestMapping(value ="/guest/{idx}", method=RequestMethod.DELETE)
+	public String del(@PathVariable int idx) throws SQLException {
+		log.info("[del]"+idx);
+		guestDao.deleteOne(idx);
+		return "redirect:../guest";
 	}
 	
 	

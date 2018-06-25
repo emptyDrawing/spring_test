@@ -72,15 +72,31 @@ public class GuestDaoImf02 implements GuestDao {
 	}
 
 	@Override
-	public int updateOne(GuestVo bean) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateOne(final GuestVo bean) throws SQLException {
+		final String sql="UPDATE GUEST SET NAME=?, PAY=? WHERE SABUN=?";
+		return jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, bean.getName());
+				pstmt.setInt(2, bean.getPay());
+				pstmt.setInt(3, bean.getSabun());
+				return pstmt;
+			}// createPreparedStatement
+		});// return..
 	}
 
 	@Override
-	public int deleteOne(int sabun) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteOne(final int sabun) throws SQLException {
+		final String sql = "DELETE FROM GUEST WHERE SABUN = ?";
+		return jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, sabun);
+				return pstmt;
+			}// createPreparedStatement
+		});// return..
 	}
 
 }

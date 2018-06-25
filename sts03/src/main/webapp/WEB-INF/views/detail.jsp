@@ -9,15 +9,26 @@
 <script type="text/javascript">
 	$(function(){
 		$('input').hide();
-		$('form>button').hide();
+		$('form:eq(0)>button').hide();
 		$('#edit').click(function(){
 			$(this).hide();
 			$('input').show();
+			$('#delete1>button').hide();
 			$('form>button').show();
 			$('.well').each(function(idx){
 				if(idx==1 || idx==3) $(this).hide();
 			});
 		})
+		
+		$('#delete1').submit(function(e){
+			//e.preventDefault();
+			var result= window.confirm("삭제하시겠습니까");
+			if(result)return true;
+		    return false;
+			//$(this).unbind('submit').submit();
+		});
+		
+		
 	});
 </script>
 <title>List</title>
@@ -50,6 +61,10 @@
 		<button type="reset" class="btn btn-default">리셋</button>
 	</form>
 	<button type="submit" class="btn btn-danger" id="edit">수정</button>
-
+	<form method="post" id="delete1" style="display:inline;">
+		<input type="hidden" name="_method" value="delete">
+		<input type="hidden" name="sabum" value="${bean.sabun }">
+		<button type="submit" class="btn btn-danger">삭제</button>		
+	</form>
 </body>
 </html>

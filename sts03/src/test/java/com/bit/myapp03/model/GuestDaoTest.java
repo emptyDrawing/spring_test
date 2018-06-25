@@ -14,6 +14,8 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+import com.bit.myapp03.model.entity.GuestVo;
+
 public class GuestDaoTest {
 
 
@@ -51,5 +53,19 @@ public class GuestDaoTest {
 		assertTrue(guestDao.selectAll().size()>0);
 	}
 
-
+	@Test
+	public void testCrud() throws SQLException {
+		int sabun =5613;
+		
+		GuestVo target = new GuestVo(sabun, "test9", null, 9000);
+		GuestVo update = new GuestVo(sabun, "test10", null, 9320);
+		
+		assertEquals(1, guestDao.insertOne(target));
+		assertEquals(target, guestDao.selectOne(sabun));
+		assertEquals(1, guestDao.updateOne(target));
+		assertEquals(update, guestDao.selectOne(sabun));
+		assertEquals(1, guestDao.deleteOne(sabun));
+		
+	}
+	
 }
