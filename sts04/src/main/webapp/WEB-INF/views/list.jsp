@@ -55,36 +55,36 @@
 		 	<li><a href="#">Home</a></li>
 		  	<li><a href="/guest/">List</a></li>
 		  	<li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Add</a></li>
-			<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-			  <div class="modal-dialog modal-lg" role="document">
-			    <div class="modal-content">
-					<div class="modal-header">
-						<h4>입력페이지</h4>
-					</div>
-					<div class="model-body">
-						<form method="post">
-							<div class="form-group">
-								<label for="sabun">sabun</label>
-								<input type="text" name="sabun" id="sabun" class="form-control" value="" placeholder="사번-숫자만">
-							</div>
-							<div class="form-group">
-								<label for="name">name</label>
-								<input type="text" name="name" id="name" class="form-control" value="" placeholder="이름">
-							</div>
-							<div class="form-group">
-								<label for="pay">pay</label>
-								<input type="text" name="pay" id="pay" class="form-control" value="" placeholder="금액-숫자만">
-							</div>
-					        <button type="submit" class="btn btn-primary">입력</button>
-					        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-						</form>
-			    	</div>
-			 	</div>
-			  </div>
-			 </div>
 		</ul>
 	  </div>
 	</nav>
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"	aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 id="myLargeModalLabel">입력페이지</h4>
+				</div>
+				<div class="model-body">
+					<form method="post">
+						<div class="form-group">
+							<label for="sabun">sabun</label> <input type="text" name="sabun"
+								id="sabun" class="form-control" value="" placeholder="사번-숫자만">
+						</div>
+						<div class="form-group">
+							<label for="name">name</label> <input type="text" name="name"
+								id="name" class="form-control" value="" placeholder="이름">
+						</div>
+						<div class="form-group">
+							<label for="pay">pay</label> <input type="text" name="pay"
+								id="pay" class="form-control" value="" placeholder="금액-숫자만">
+						</div>
+						<button type="submit" class="btn btn-primary">입력</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Context start -->
 	<div class="list-group">
 	<c:forEach items="${alist }" var="bean">
