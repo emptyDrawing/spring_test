@@ -17,8 +17,7 @@ public class GuestDaoImf03 implements GuestDao{
 	
 	@Override
 	public List<GuestVo> selectAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return 	sqlSession.selectList("com.bit.myapp04.model.GuestDao.selectAll");
 	}
 
 	@Override
