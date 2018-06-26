@@ -19,10 +19,13 @@
 		<constructor-arg ref="dataSource"/>
 	</bean>
 
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="platformTransactionManager"/>
+	</bean>
 	
 	<bean id="guestDao" class="com.bit.myapp04.model.GueatDaoImf01">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
-		<property name="transactionManager" ref="platformTransactionManager"></property>
+		<property name="transactionTemplate" ref="transactionTemplate"></property>
 	</bean>
 
 </beans>
