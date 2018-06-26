@@ -10,14 +10,13 @@
 		<property name="password" value="tiger"/>
 	</bean>
 	
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"></bean>
-	
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory"/>
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:/sqlMapConfig.xml"></property>
 	</bean>
 	
-	<bean id="guestDao" class="com.bit.myapp04.model.GuestDaoImf03">
-		<property name="sqlSession" ref="sqlSession"/>
+	<bean id="guestDao" class="com.bit.myapp04.model.GuestDaoImf02">
+		<property name="sqlMapClient" ref="sqlMapClient"></property>
 	</bean>
 
 </beans>
