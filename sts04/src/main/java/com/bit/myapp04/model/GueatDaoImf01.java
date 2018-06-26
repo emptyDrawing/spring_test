@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
@@ -21,17 +22,10 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import com.bit.myapp04.model.entity.GuestVo;
 
-public class GueatDaoImf01 implements GuestDao {
+public class GueatDaoImf01 extends SimpleJdbcDaoSupport implements GuestDao {
 
 	
-	JdbcTemplate jdbcTemplate;
 	private TransactionTemplate transactionTemplate;
-
-	
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}// DI -- classpath:/applicationContext.xml
-
 	
 	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
 		this.transactionTemplate = transactionTemplate;
@@ -52,13 +46,13 @@ public class GueatDaoImf01 implements GuestDao {
 	@Override
 	public List<GuestVo> selectAll() throws SQLException {
 		String sql = "SELECT * FROM GUEST ORDER BY SABUN";
-		return jdbcTemplate.query(sql, rowMapper );
+		return getJdbcTemplate().query(sql, rowMapper );
 	}
 
 	@Override
 	public GuestVo selectOne(int sabun) throws SQLException {
 		String sql = "SELECT * FROM GUEST where sabun = ?";
-		return jdbcTemplate.query(sql, new Object[] {sabun},rowMapper ).get(0);
+		return getJdbcTemplate().query(sql, new Object[] {sabun},rowMapper ).get(0);
 	}
 
 	@Override
@@ -68,7 +62,7 @@ public class GueatDaoImf01 implements GuestDao {
 
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
-				jdbcTemplate.update( new PreparedStatementCreator() {
+				getJdbcTemplate().update( new PreparedStatementCreator() {
 
 					@Override
 					public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
@@ -79,7 +73,7 @@ public class GueatDaoImf01 implements GuestDao {
 						return pstmt;
 					}});
 				bean.setSabun(bean.getSabun()+333);
-				jdbcTemplate.update( new PreparedStatementCreator() {
+				getJdbcTemplate().update( new PreparedStatementCreator() {
 					
 					@Override
 					public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
@@ -131,7 +125,7 @@ public class GueatDaoImf01 implements GuestDao {
 	@Override
 	public int updateOne(final GuestVo bean) throws SQLException {
 		final String sql = "UPDATE GUEST SET NAME=?, PAY=? WHERE SABUN=?";
-		return jdbcTemplate.update(new PreparedStatementCreator() {
+		return getJdbcTemplate().update(new PreparedStatementCreator() {
 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
@@ -150,7 +144,7 @@ public class GueatDaoImf01 implements GuestDao {
 		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
-				jdbcTemplate.update(new PreparedStatementCreator() {
+				getJdbcTemplate().update(new PreparedStatementCreator() {
 					@Override
 					public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 						PreparedStatement pstmt = conn.prepareStatement(sql);
