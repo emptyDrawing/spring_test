@@ -2,3 +2,12 @@
 sts02/target/
 sts04/target/
 sts05/target/
+sts06/target/classes/log4j.xml
+sts06/target/classes/com/bit/myapp06/model/entity/GuestVo.class
+sts06/target/classes/com/bit/myapp06/model/GuestDao.class
+sts06/target/classes/com/bit/myapp06/HomeController.class
+sts06/target/m2e-wtp/web-resources/META-INF/maven/com.bit/myapp06/pom.xml
+sts06/target/m2e-wtp/web-resources/META-INF/maven/com.bit/myapp06/pom.properties
+sts06/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+sts06/target/classes/mapper.xml
+sts06/target/classes/applicationContext.xml
