@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+		
+	<bean id="guestDao" class="com.bit.aop01.model.GuestDaoImp"/>	
+	
+	<bean id="methodBeforeAdvice" class="com.bit.aop01.aop.MyBeforMethod"/>
+	
+	<bean id="afterReturningAdvice" class="com.bit.aop01.aop.MyAfterMethod"></bean>
+	
+	<bean id="myAroundMethod" class="com.bit.aop01.aop.MyAroundMethod"></bean>
+	
+	<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="guestDao"></property>
+		<property name="interceptorNames">
+			<list>
+				<!--  <value>methodBeforeAdvice</value>
+				<value>afterReturningAdvice</value> -->
+				<value>myAroundMethod</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+</beans>
